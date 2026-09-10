@@ -1,187 +1,339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Isaac | Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description"
+        content="Isaac Okonya is a Diploma in Information Technology student at UCU and the founder of iSAX TECH HUB, building practical digital solutions while growing toward software engineering.">
+    <meta name="theme-color" content="#071018">
+    <title>Isaac Okonya | iSAX TECH HUB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="container nav-inner">
-                <a href="#home" class="logo">
-                    <div class="brand-name">iSAX Tech Hub</div>
-                    <span class="brand-tagline">Innovative Solutions</span>
-                </a>
-                <button class="nav-toggle" aria-expanded="false" aria-label="Open navigation menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <a href="#contact" class="button button-primary">Let's Talk</a>
-            </div>
-        </nav>
-    </header>
+    <div class="site-shell">
+        <header class="site-header" id="top">
+            <a class="brand" href="#home" aria-label="Isaac Okonya home">
+                <span class="brand-mark">iS</span>
+                <span class="brand-copy"><strong>iSAX</strong><small>TECH HUB</small></span>
+            </a>
+            <nav class="desktop-nav" aria-label="Primary navigation">
+                <a class="is-active" href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a class="header-action" href="#contact">Let's talk <i data-lucide="arrow-up-right"></i></a>
+            <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><i
+                    data-lucide="menu"></i></button>
+        </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container hero-grid">
-                <div class="hero-copy">
-                    <span class="eyebrow">IT Student & Tech Enthusiast</span>
-                    <h1>Hi, I'm <span class="highlight">iSAAC</span></h1>
-                    <p class="hero-subtitle">An Information Technology student passionate about exploring how technology works and solving real-world problems with it.</p>
-                    <p class="hero-text">I build clean, responsive websites with strong visual design and smooth user experience, while growing my skills in web development and digital tools.</p>
+        <main>
+            <section class="hero section" id="home">
+                <div class="hero-content reveal">
+                    <div class="eyebrow"><span class="status-dot"></span> Available for learning & collaboration</div>
+                    <p class="hero-kicker">Hello, I'm</p>
+                    <h1><span class="name-line name-line-first">Isaac</span><br><em><span
+                                class="name-line name-line-last">Okonya</span></em></h1>
+                    <p class="hero-role" aria-live="polite"><span class="hero-role-label">IT Student</span><span
+                            class="typing-cursor" aria-hidden="true"></span></p>
+                    <p class="hero-intro">An IT student turning curiosity into practical digital solutions, one project
+                        at a time.</p>
                     <div class="hero-actions">
-                        <a href="#projects" class="button button-primary">View My Work</a>
-                        <a href="#contact" class="button button-secondary">Contact Me</a>
+                        <a class="button button-primary" href="#projects">Explore my work <i
+                                data-lucide="arrow-up-right"></i></a>
+                        <a class="button button-quiet" href="#contact">Get in touch <i
+                                data-lucide="move-up-right"></i></a>
                     </div>
-                    <div class="hero-social">
-                        <a href="#" class="social-link">
-                            <span class="social-icon">🐙</span>
-                            <span class="social-text">GitHub</span>
-                        </a>
-                        <a href="" class="social-link">
-                            <span class="social-icon">📸</span>
-                            <span class="social-text">Instagram</span>
-                        </a>
-                        <a href="mailto:isaacokonya1@gmail.com" class="social-link">
-                            <span class="social-icon">✉️</span>
-                            <span class="social-text">Gmail</span>
-                        </a>
+                    <div class="hero-meta">
+                        <span><i data-lucide="map-pin"></i> Mukono, Uganda</span>
+                        <span><i data-lucide="graduation-cap"></i> DIT · UCU</span>
                     </div>
                 </div>
-                <div class="hero-panel">
-                    <div class="hero-panel-image"><img src="images/me.jpeg" alt="dp"></div>
+                <div class="hero-visual reveal delay-1" aria-label="A visual summary of Isaac's learning journey">
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+                    <figure class="profile-portrait">
+                        <div class="portrait-ring"></div>
+                        <img src="dp.jpeg" alt="Isaac Okonya profile photo" width="1086" height="1450">
+                        <figcaption><span class="portrait-status"></span> Isaac Okonya · UCU</figcaption>
+                    </figure>
+                    <div class="signal-card">
+                        <span class="signal-label">CURRENTLY BUILDING</span>
+                        <strong>iSAX<br>TECH HUB</strong>
+                        <span class="signal-line"></span>
+                        <span class="signal-caption">Digital services with a human touch.</span>
+                    </div>
+                    <div class="floating-note note-top"><i data-lucide="code-2"></i><span>Learn<br><b>→ Build</b></span>
+                    </div>
+                    <div class="floating-note note-bottom"><i data-lucide="sparkles"></i><span>Year 01<br><b>Semester
+                                02</b></span></div>
+                    <div class="hero-index">01 <span>/ 04</span></div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="about" class="section-dark">
-            <div class="container section-head">
-                <h2 >About Me</h2>
-                <p>I'm an Information Technology student who loves learning how technology works and building practical solutions with it. I enjoy software, mobile tools, and system customization, and I stay curious by testing new tools and workflows.</p>
-            </div>
-            <div class="container about-grid">
-                <div class="about-copy">
-                    <p>I learn fast, adapt easily, and enjoy solving problems. I’m the kind of person who doesn't panic when things break — I explore, test, and fix issues until they work.</p>
-                    <p>Right now, I’m focused on improving my web skills and creating projects that reflect my growth and passion for tech.</p>
+            <section class="statement section reveal" aria-label="Portfolio statement">
+                <div class="section-tag">01 / THE WHY</div>
+                <div class="statement-copy">
+                    <p>I am learning in public, building with purpose, and growing toward software engineering.</p><span
+                        class="accent-line"></span>
                 </div>
-                <div class="about-cards">
-                    <article class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Quick Learner</h3>
-                        <p>I understand new tools and systems fast and pick up new workflows quickly.</p>
+                <div class="statement-aside">No inflated titles.<br>Just consistent progress.</div>
+            </section>
+
+            <section class="about section" id="about">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="section-tag">02 / THE PERSON</div>
+                        <h2>Rooted in learning.<br><em>Focused on making.</em></h2>
+                    </div>
+                    <p>Technology is the language I am learning to speak fluently. Every project gives me a new way to
+                        listen, test, and create.</p>
+                </div>
+                <div class="about-grid">
+                    <div class="about-note reveal">
+                        <div class="note-number">01</div>
+                        <p>My long-term direction is clear: become a professional Software Engineer by staying curious,
+                            practicing deliberately, and shipping useful work.</p><span class="handwritten">still
+                            becoming ↗</span>
+                    </div>
+                    <div class="quick-info reveal delay-1">
+                        <div class="card-label">QUICK INFO <span></span></div>
+                        <dl>
+                            <div>
+                                <dt>Name</dt>
+                                <dd>Isaac Okonya</dd>
+                            </div>
+                            <div>
+                                <dt>Education</dt>
+                                <dd>Uganda Christian University</dd>
+                            </div>
+                            <div>
+                                <dt>Programme</dt>
+                                <dd>Diploma in Information Technology</dd>
+                            </div>
+                            <div>
+                                <dt>Current level</dt>
+                                <dd>Year 1 · Semester 2</dd>
+                            </div>
+                            <div>
+                                <dt>Goal</dt>
+                                <dd>Software Engineering</dd>
+                            </div>
+                            <div>
+                                <dt>Brand</dt>
+                                <dd>iSAX TECH HUB</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+
+            <section class="skills section" id="skills">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="section-tag">03 / THE TOOLKIT</div>
+                        <h2>Tools I use to<br><em>find my way.</em></h2>
+                    </div>
+                    <p>These are skills I am actively learning, practicing, and bringing into real coursework and
+                        personal projects.</p>
+                </div>
+                <div class="skill-layout">
+                    <div class="skill-intro reveal"><span class="big-mark">✳</span>
+                        <p>My toolkit is a work in progress. That is the point.</p><a href="#contact"
+                            class="text-link">Start a conversation <i data-lucide="arrow-up-right"></i></a>
+                    </div>
+                    <div class="skill-list reveal delay-1">
+                        <div class="skill-row"><span>01</span><strong>Build</strong>
+                            <p>HTML · CSS · JavaScript · Python · C/C++</p><b>LEARNING</b>
+                        </div>
+                        <div class="skill-row"><span>02</span><strong>Connect</strong>
+                            <p>Networking · Cisco Packet Tracer · Wireshark · Linux</p><b>PRACTICING</b>
+                        </div>
+                        <div class="skill-row"><span>03</span><strong>Organise</strong>
+                            <p>MySQL · Database design · Git · GitHub · VS Code</p><b>WORKING WITH</b>
+                        </div>
+                        <div class="skill-row"><span>04</span><strong>Shape</strong>
+                            <p>Figma · Canva · Adobe Photoshop · WordPress</p><b>EXPLORING</b>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="projects section" id="projects">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="section-tag">04 / SELECTED WORK</div>
+                        <h2>Small steps.<br><em>Real things.</em></h2>
+                    </div>
+                    <p>Coursework, experiments, and growing ideas. Some are in progress, because learning is part of the
+                        portfolio too.</p>
+                </div>
+                <div class="project-grid">
+                    <article class="project-card project-feature reveal">
+                        <div class="project-art art-portfolio"><span class="art-label">LIVE / PERSONAL</span>
+                            <div class="art-window"><span></span><span></span><span></span>
+                                <div class="art-lines"></div>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-top"><span>01</span><span>In progress</span></div>
+                            <h3>Personal Portfolio</h3>
+                            <p>A living home for my learning, projects, and next steps toward software engineering.</p>
+                            <div class="techs"><span>HTML</span><span>CSS</span><span>JavaScript</span></div><a
+                                href="#top" class="project-link">View project <i data-lucide="arrow-up-right"></i></a>
+                        </div>
                     </article>
-                    <article class="feature-card">
-                        <div class="feature-icon">🧠</div>
-                        <h3>Problem Solver</h3>
-                        <p>I enjoy finding solutions and fixing issues with calm and focus.</p>
+                    <article class="project-card reveal delay-1">
+                        <div class="project-art art-database"><span class="art-label">COURSEWORK</span>
+                            <div class="database-shape"><i></i><i></i><i></i></div><span class="art-code">SELECT
+                                *<br>FROM growth;</span>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-top"><span>02</span><span>Learning project</span></div>
+                            <h3>Student Management System</h3>
+                            <p>Exploring how structured data can make student records easier to manage.</p>
+                            <div class="techs"><span>MySQL</span><span>Database design</span></div><a href="#contact"
+                                class="project-link">Details soon <i data-lucide="arrow-up-right"></i></a>
+                        </div>
                     </article>
-                    <article class="feature-card">
-                        <div class="feature-icon">💡</div>
-                        <h3>Always Learning</h3>
-                        <p>I stay curious and continue growing my skills in programming and digital tools.</p>
+                    <article class="project-card reveal">
+                        <div class="project-art art-network"><span class="art-label">PRACTICE LAB</span>
+                            <div class="network-map"><i></i><i></i><i></i><i></i><b></b></div><span
+                                class="art-code">192.168.1.0/24</span>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-top"><span>03</span><span>Practice lab</span></div>
+                            <h3>VLAN Networking Lab</h3>
+                            <p>Building a foundation in network segmentation and troubleshooting with Packet Tracer.</p>
+                            <div class="techs"><span>Packet Tracer</span><span>Networking</span></div><a href="#contact"
+                                class="project-link">Details soon <i data-lucide="arrow-up-right"></i></a>
+                        </div>
+                    </article>
+                    <article class="project-card reveal delay-1">
+                        <div class="project-art art-python"><span class="art-label">PYTHON / PRACTICE</span>
+                            <div class="python-mark">Py<span>→</span></div><span class="art-code">grades.py<br>+
+                                progress</span>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-top"><span>04</span><span>Building</span></div>
+                            <h3>Grade Management Tool</h3>
+                            <p>A Python exercise focused on logic, input handling, and useful student feedback.</p>
+                            <div class="techs"><span>Python</span><span>Problem solving</span></div><a href="#contact"
+                                class="project-link">Details soon <i data-lucide="arrow-up-right"></i></a>
+                        </div>
                     </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="skills">
-            <div class="container section-head">
-                <h2>My Skills</h2>
-                <p>I use modern web technologies and tools to create clean interfaces and efficient experiences.</p>
-            </div>
-            <div class="container skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">HTML</div>
-                    <h3>HTML</h3>
-                    <p>Good</p>
+            <section class="hub section" id="services">
+                <div class="hub-panel reveal">
+                    <div class="hub-heading">
+                        <div class="section-tag">05 / THE BRAND</div>
+                        <h2>Meet <span>iSAX</span><br>TECH HUB</h2>
+                        <p>A growing technology brand run by Isaac, turning everyday needs into clear, practical digital
+                            services.</p>
+                    </div>
+                    <div class="hub-services">
+                        <div><span>01</span><strong>Website development</strong><small>Clean, responsive web
+                                experiences.</small></div>
+                        <div><span>02</span><strong>IT support</strong><small>Patient help for everyday
+                                technology.</small></div>
+                        <div><span>03</span><strong>CV & document editing</strong><small>Sharper documents that
+                                represent you well.</small></div>
+                        <div><span>04</span><strong>Graphics & branding</strong><small>Visual foundations for growing
+                                ideas.</small></div>
+                        <div><span>05</span><strong>Digital solutions</strong><small>Simple systems for real
+                                needs.</small></div>
+                        <div><span>06</span><strong>Technology training</strong><small>Learning made practical and
+                                approachable.</small></div>
+                    </div>
+                    <div class="hub-footer"><span>Build. Create. Grow.</span><a href="#contact"
+                            class="button button-light">Work with iSAX <i data-lucide="arrow-up-right"></i></a></div>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-icon">CSS</div>
-                    <h3>CSS</h3>
-                    <p>Good</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">Py</div>
-                    <h3>Python</h3>
-                    <p>Learning</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">⚙️</div>
-                    <h3>Tools</h3>
-                    <p>Quick Understanding</p>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="projects" class="section-dark">
-            <div class="container section-head">
-                <h2>My Projects</h2>
-                <p>Projects that show my learning progress and ability to build clean web experiences.</p>
-            </div>
-            <div class="container projects-grid">
-                <article class="project-card">
-                    <div class="project-preview project-preview-1"></div>
-                    <h3>Personal Portfolio Website</h3>
-                    <p>A portfolio site that highlights my skills, projects, and personal story.</p>
-                    <div class="project-tags"><span>HTML</span><span>CSS</span></div>
-                </article>
-                <article class="project-card">
-                    <div class="project-preview project-preview-2"></div>
-                    <h3>Login Page UI</h3>
-                    <p>A clean login page design created with HTML and CSS for a smooth user experience.</p>
-                    <div class="project-tags"><span>HTML</span><span>CSS</span></div>
-                </article>
-                <article class="project-card">
-                    <div class="project-preview project-preview-3"></div>
-                    <h3>Landing Page</h3>
-                    <p>A modern landing page design inspired by current UI trends and layouts.</p>
-                    <div class="project-tags"><span>HTML</span><span>CSS</span></div>
-                </article>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div class="container section-head">
-                <h2>Contact</h2>
-                <p>Ready to collaborate? Let's connect and build something useful together.</p>
-            </div>
-            <div class="container contact-grid">
-                <div class="contact-card">
-                    <h3>Email</h3>
-                    <p>easieisaa@gmail.com</p>
+            <section class="journey section" id="journey">
+                <div class="section-heading reveal">
+                    <div>
+                        <div class="section-tag">06 / THE JOURNEY</div>
+                        <h2>Growing by<br><em>doing the work.</em></h2>
+                    </div>
+                    <p>Formal education gives me the foundation. Practical projects give it shape.</p>
                 </div>
-                <div class="contact-card">
-                    <h3>LinkedIn</h3>
-                    <p><a href="#">https://www.linkedin.com/in/isaac-okonya-31808240a/</a></p>
+                <div class="timeline reveal">
+                    <div class="timeline-item current"><span class="timeline-marker"></span>
+                        <div class="timeline-date">2026 — PRESENT</div>
+                        <div>
+                            <h3>Diploma in Information Technology</h3>
+                            <p>Uganda Christian University · Mukono</p><span>Year 1 · Semester 2 · Advent intake</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item"><span class="timeline-marker"></span>
+                        <div class="timeline-date">ONGOING</div>
+                        <div>
+                            <h3>Projects & practical experience</h3>
+                            <p>Web development · Databases · Python · Networking · Linux practice</p><span>Learning
+                                through building</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item"><span class="timeline-marker"></span>
+                        <div class="timeline-date">NEXT CHAPTER</div>
+                        <div>
+                            <h3>Professional Software Engineer</h3>
+                            <p>A direction I am working toward with patience and purpose.</p><span>Future goal</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="contact-card">
-                    <h3>Location</h3>
-                    <p>Remote / Online</p>
+            </section>
+
+            <section class="contact section" id="contact">
+                <div class="contact-panel reveal">
+                    <div class="contact-copy">
+                        <div class="section-tag">07 / SAY HELLO</div>
+                        <h2>Have an idea?<br><em>Let's make it clearer.</em></h2>
+                        <p>I am open to project conversations, website work, IT support opportunities, internships,
+                            jobs, collaborations, and learning opportunities.</p>
+                        <div class="contact-placeholders"><span><i data-lucide="mail"></i> [ADD EMAIL]</span><span><i
+                                    data-lucide="phone"></i> [ADD PHONE / WHATSAPP]</span><span><i
+                                    data-lucide="github"></i> [ADD GITHUB URL]</span><span><i
+                                    data-lucide="linkedin"></i> [ADD LINKEDIN URL]</span></div>
+                    </div>
+                    <form class="contact-form" id="contact-form"><label for="name">Your name<input id="name" name="name"
+                                type="text" placeholder="e.g. Amina" required></label><label for="email">Your
+                            email<input id="email" name="email" type="email" placeholder="you@example.com"
+                                required></label><label for="message">Your message<textarea id="message" name="message"
+                                rows="4" placeholder="Tell me a little about what you have in mind..."
+                                required></textarea></label><button class="button button-primary" type="submit">Send
+                            message <i data-lucide="arrow-up-right"></i></button>
+                        <p class="form-note" id="form-note" role="status"></p>
+                    </form>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <button id="scroll-to-top" class="scroll-to-top" aria-label="Scroll to top">
-        <span>↑</span>
-    </button>
-
-    <footer>
-        <div class="container footer-inner">
-            <p>© 2026 Isaac. Building my future one line of code at a time.</p>
-        </div>
-    </footer>
-
+        <footer class="site-footer"><a class="brand" href="#top"><span class="brand-mark">iS</span><span
+                    class="brand-copy"><strong>iSAX</strong><small>TECH HUB</small></span></a>
+            <p>Isaac Okonya · learning, building, growing.</p><span>© 2026</span>
+        </footer>
+    </div>
+    <nav class="mobile-dock" aria-label="Mobile navigation"><a class="is-active" href="#home"><i
+                data-lucide="house"></i><span>Home</span></a><a href="#about"><i
+                data-lucide="user-round"></i><span>About</span></a><a href="#skills"><i
+                data-lucide="sparkles"></i><span>Skills</span></a><a href="#projects"><i
+                data-lucide="layers-3"></i><span>Work</span></a><a href="#services"><i
+                data-lucide="briefcase-business"></i><span>Services</span></a><a href="#contact"><i
+                data-lucide="send"></i><span>Contact</span></a></nav>
     <script src="script.js"></script>
 </body>
+
 </html>
