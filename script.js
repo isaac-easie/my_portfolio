@@ -110,7 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form?.addEventListener('submit', (event) => {
         event.preventDefault();
-        formNote.textContent = 'Thanks. Connect an email service to send this message for real.';
-        form.reset();
+        const formData = new FormData(form);
+        const subject = `Portfolio message from ${formData.get('name')}`;
+        const body = [
+            `Name: ${formData.get('name')}`,
+            `Email: ${formData.get('email')}`,
+            '',
+            formData.get('message')
+        ].join('\n');
+        const mailtoUrl = `mailto:isaacokonya1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        formNote.textContent = 'Opening your email app with the message addressed to Isaac.';
+        window.location.href = mailtoUrl;
     });
 });

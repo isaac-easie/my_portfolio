@@ -1018,15 +1018,38 @@ dd {
     font: 10px var(--mono)
 }
 
-.contact-placeholders span {
+.contact-placeholders a {
     display: flex;
     align-items: center;
+    min-height: 44px;
     gap: 10px
+}
+
+.contact-placeholders a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .2s
+}
+
+.contact-placeholders a:hover,
+.contact-placeholders a:focus-visible {
+    color: var(--cyan)
+}
+
+.contact-placeholders a:focus-visible {
+    outline: 1px solid var(--cyan);
+    outline-offset: 3px
 }
 
 .contact-placeholders svg {
     width: 14px;
     color: var(--cyan)
+}
+
+.contact-placeholders .contact-brand-icon {
+    height: 14px;
+    fill: currentColor;
+    stroke: none
 }
 
 .contact-form {
@@ -2031,6 +2054,55 @@ main section[id] {
     border-radius: 50%;
     background: var(--lime);
     box-shadow: 0 0 14px var(--lime)
+}
+
+.portrait-readout {
+    position: absolute;
+    z-index: 2;
+    top: 14px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 10px;
+    border: 1px solid rgba(94, 231, 242, .4);
+    border-left: 2px solid var(--cyan);
+    background: rgba(7, 16, 24, .82);
+    color: var(--paper);
+    backdrop-filter: blur(8px)
+}
+
+.readout-code {
+    color: var(--cyan);
+    font: 500 15px var(--mono)
+}
+
+.readout-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-family: var(--mono);
+    line-height: 1.2
+}
+
+.readout-copy small {
+    color: var(--muted);
+    font-size: 7px;
+    letter-spacing: .08em
+}
+
+.readout-copy strong {
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: .04em
+}
+
+.readout-live {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--lime);
+    box-shadow: 0 0 10px var(--lime)
 }
 
 .profile-portrait figcaption {
