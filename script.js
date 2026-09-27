@@ -6,8 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.querySelector('.menu-toggle');
     const header = document.querySelector('.site-header');
     const desktopNav = document.querySelector('.desktop-nav');
-    const form = document.querySelector('#contact-form');
-    const formNote = document.querySelector('#form-note');
     const roleLabel = document.querySelector('.hero-role-label');
     const themeColor = document.querySelector('meta[name="theme-color"]');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -108,19 +106,4 @@ document.addEventListener('DOMContentLoaded', () => {
         header?.classList.remove('menu-open');
     }));
 
-    form?.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const formData = new FormData(form);
-        const subject = `Portfolio message from ${formData.get('name')}`;
-        const body = [
-            `Name: ${formData.get('name')}`,
-            `Email: ${formData.get('email')}`,
-            '',
-            formData.get('message')
-        ].join('\n');
-        const mailtoUrl = `mailto:isaacokonya1@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-        formNote.textContent = 'Opening your email app with the message addressed to Isaac.';
-        window.location.href = mailtoUrl;
-    });
 });
