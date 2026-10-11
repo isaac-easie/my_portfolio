@@ -102,8 +102,11 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach((link) => link.addEventListener('click', () => {
         const targetId = link.getAttribute('href')?.slice(1);
         if (targetId) setActiveLink(targetId);
-        menuToggle?.setAttribute('aria-expanded', 'false');
-        header?.classList.remove('menu-open');
+        if (menuToggle?.getAttribute('aria-expanded') === 'true') {
+            menuToggle.click();
+        } else {
+            header?.classList.remove('menu-open');
+        }
     }));
 
 });
