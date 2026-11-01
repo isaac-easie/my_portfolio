@@ -1,112 +1,105 @@
 document.addEventListener('DOMContentLoaded', () => {
-    if (window.lucide) lucide.createIcons();
+    const root = document.documentElement;
+    const navLinks = [...document.querySelectorAll('.site-nav a, .mobile-bottom-nav a')];
+    const year = document.getElementById('year');
+    const revealItems = [...document.querySelectorAll('.reveal, .reveal-text')];
+    const typingText = document.querySelector('.typing-text');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const applyTheme = (theme) => {
+        root.setAttribute('data-theme', theme);
+    };
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: light)');
+    const applySystemTheme = () => {
+        applyTheme(mediaQuery.matches ? 'light' : 'dark');
+    };
+
+    applySystemTheme();
+    mediaQuery.addEventListener('change', applySystemTheme);
+
+    const setActiveNav = (id) => {
+        navLinks.forEach((link) => {
+            const active = link.getAttribute('href') === `#${id}`;
+            link.classList.toggle('is-active', active);
+        });
+    };
 
     const sections = [...document.querySelectorAll('main section[id]')];
-    const navLinks = [...document.querySelectorAll('.desktop-nav a, .mobile-dock a')];
-    const menuToggle = document.querySelector('.menu-toggle');
-    const header = document.querySelector('.site-header');
-    const desktopNav = document.querySelector('.desktop-nav');
-    const roleLabel = document.querySelector('.hero-role-label');
-    const themeColor = document.querySelector('meta[name="theme-color"]');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const phrases = [
-        'IT Student',
-        'Web Developer',
-        'Tech Builder',
-        'Software Engineering Enthusiast',
-        'Problem Solver',
-        'Founder of iSAX TECH HUB'
-    ];
-
-    const setActiveLink = (id) => {
-        navLinks.forEach((link) => {
-            const isActive = link.getAttribute('href') === `#${id}`;
-            link.classList.toggle('is-active', isActive);
-            if (isActive) link.setAttribute('aria-current', 'page');
-            else link.removeAttribute('aria-current');
-        });
-    };
-
-    const updateHeaderState = () => header?.classList.toggle('is-scrolled', window.scrollY > 18);
-    updateHeaderState();
-    window.addEventListener('scroll', updateHeaderState, { passive: true });
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) setActiveLink(entry.target.id);
-        });
-    }, { rootMargin: '-35% 0px -55% 0px' });
-    sections.forEach((section) => sectionObserver.observe(section));
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
+                setActiveNav(entry.target.id);
             }
         });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach((item) => revealObserver.observe(item));
+    }, { rootMargin: '-25% 0px -55% 0px' });
 
-    const updateThemeColor = () => {
-        if (themeColor) themeColor.setAttribute('content', getComputedStyle(document.documentElement).getPropertyValue('--ink').trim());
-    };
-    updateThemeColor();
-    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', updateThemeColor);
+    sections.forEach((section) => observer.observe(section));
 
-    if (roleLabel && !reducedMotion.matches) {
-        let phraseIndex = 0;
-        let characterIndex = roleLabel.textContent.length;
-        let deleting = true;
-
-        const typeNextPhrase = () => {
-            const phrase = phrases[phraseIndex];
-            if (deleting) {
-                characterIndex -= 1;
-                roleLabel.textContent = phrase.slice(0, characterIndex);
-                if (characterIndex === 0) {
-                    deleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    revealObserver.unobserve(entry.target);
                 }
-            } else {
-                characterIndex += 1;
-                roleLabel.textContent = phrases[phraseIndex].slice(0, characterIndex);
-                if (characterIndex === phrases[phraseIndex].length) deleting = true;
-            }
+            });
+        }, { threshold: 0.12 });
 
-            const pause = characterIndex === phrases[phraseIndex].length && deleting ? 1900 : deleting ? 55 : 88;
-            window.setTimeout(typeNextPhrase, pause);
-        };
-
-        window.setTimeout(typeNextPhrase, 1900);
+        revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+        revealItems.forEach((item) => item.classList.add('is-visible'));
     }
 
-    menuToggle?.addEventListener('click', () => {
-        const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', String(!expanded));
-        header.classList.toggle('menu-open', !expanded);
-        desktopNav.style.display = expanded ? '' : 'flex';
-        desktopNav.style.position = expanded ? '' : 'absolute';
-        desktopNav.style.top = expanded ? '' : '69px';
-        desktopNav.style.left = expanded ? '' : '0';
-        desktopNav.style.right = expanded ? '' : '0';
-        desktopNav.style.flexDirection = expanded ? '' : 'column';
-        desktopNav.style.gap = expanded ? '' : '0';
-        desktopNav.style.padding = expanded ? '' : '8px 18px 14px';
-        desktopNav.style.margin = expanded ? '' : '0';
-        desktopNav.style.background = expanded ? '' : 'var(--ink)';
-        desktopNav.style.borderTop = expanded ? '' : '1px solid var(--line)';
-        menuToggle.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-    });
+    if (typingText && !reducedMotion) {
+        const phrases = JSON.parse(typingText.dataset.phrases || '[]');
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let timerId = null;
 
-    navLinks.forEach((link) => link.addEventListener('click', () => {
-        const targetId = link.getAttribute('href')?.slice(1);
-        if (targetId) setActiveLink(targetId);
-        if (menuToggle?.getAttribute('aria-expanded') === 'true') {
-            menuToggle.click();
-        } else {
-            header?.classList.remove('menu-open');
-        }
-    }));
+        const tick = () => {
+            const currentPhrase = phrases[phraseIndex] || '';
 
+            if (!isDeleting) {
+                charIndex += 1;
+                typingText.textContent = currentPhrase.slice(0, charIndex);
+
+                if (charIndex === currentPhrase.length) {
+                    isDeleting = true;
+                    timerId = window.setTimeout(tick, 1400);
+                    return;
+                }
+            } else {
+                charIndex -= 1;
+                typingText.textContent = currentPhrase.slice(0, charIndex);
+
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    timerId = window.setTimeout(tick, 260);
+                    return;
+                }
+            }
+
+            const speed = isDeleting ? 38 : 92;
+            timerId = window.setTimeout(tick, speed);
+        };
+
+        typingText.textContent = '';
+        timerId = window.setTimeout(tick, 500);
+
+        window.addEventListener('beforeunload', () => {
+            if (timerId) {
+                window.clearTimeout(timerId);
+            }
+        }, { once: true });
+    } else if (typingText) {
+        const safePhrases = JSON.parse(typingText.dataset.phrases || '[]');
+        typingText.textContent = safePhrases[0] || 'IT Student';
+    }
+
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
 });
