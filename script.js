@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
-    const navLinks = [...document.querySelectorAll('.site-nav a')];
+    const navLinks = [...document.querySelectorAll('.site-nav a, .mobile-bottom-nav a')];
     const year = document.getElementById('year');
     const revealItems = [...document.querySelectorAll('.reveal, .reveal-text')];
     const typingText = document.querySelector('.typing-text');
