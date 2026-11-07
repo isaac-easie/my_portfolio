@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assistant.css">
 </head>
 
 <body>
@@ -498,7 +499,60 @@
         <a href="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
     </nav>
 
+    <button class="isax-ai-launcher" type="button" aria-controls="isax-ai-panel" aria-expanded="false">
+        Ask iSAX AI
+    </button>
+
+    <aside class="isax-ai-panel" id="isax-ai-panel" aria-label="Ask iSAX AI assistant" aria-live="polite">
+        <div class="isax-ai-panel__header">
+            <div class="isax-ai-panel__brand">
+                <div class="isax-ai-panel__name">Ask iSAX AI</div>
+            </div>
+            <div class="isax-ai-panel__status" id="isax-ai-status">Closed</div>
+            <button class="isax-ai-close" type="button" id="isax-ai-close" aria-label="Close AI assistant">×</button>
+        </div>
+
+        <div class="isax-ai-panel__messages" id="isax-ai-messages"></div>
+
+        <form class="isax-ai-panel__composer" id="isax-ai-form">
+            <label class="sr-only" for="isax-ai-input">Type your message</label>
+            <textarea class="isax-ai-panel__input" id="isax-ai-input" rows="1" placeholder="Ask about my portfolio, skills or services..."></textarea>
+            <button class="isax-ai-panel__send" type="submit">Send</button>
+        </form>
+    </aside>
+
+    <script>
+        window.ISAX_AI_CONFIG = window.ISAX_AI_CONFIG || {
+            apiKey: 'AIzaSyDs_Z4lGrMQlTJjEdS5NeQUNN4AfwHK3ZY',
+            authDomain: 'myportfolio-42394.firebaseapp.com',
+            projectId: 'myportfolio-42394',
+            storageBucket: 'myportfolio-42394.firebasestorage.app',
+            messagingSenderId: '556206248589',
+            appId: '1:556206248589:web:7575923e20698b028288c4',
+            measurementId: 'G-TKE54JTH2L',
+            appCheckSiteKey: ''
+        };
+    </script>
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js';
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/13.2.0/firebase-analytics.js';
+
+        const firebaseConfig = {
+            apiKey: 'AIzaSyDs_Z4lGrMQlTJjEdS5NeQUNN4AfwHK3ZY',
+            authDomain: 'myportfolio-42394.firebaseapp.com',
+            projectId: 'myportfolio-42394',
+            storageBucket: 'myportfolio-42394.firebasestorage.app',
+            messagingSenderId: '556206248589',
+            appId: '1:556206248589:web:7575923e20698b028288c4',
+            measurementId: 'G-TKE54JTH2L'
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        window.firebaseAnalytics = analytics;
+    </script>
     <script src="script.js"></script>
+    <script src="assistant.js"></script>
 </body>
 
 </html>
